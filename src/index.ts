@@ -74,7 +74,7 @@ const enviarRecordatorios = async (db: Db): Promise<{ eventosProximos: number; n
 };
 
 const finalizarEventosPasados = async (db: Db): Promise<number> => {
-  const todayStart = new Date(new Date().setHours(0, 0, 0, 0));
+  const todayStart = new Date(new Date().setUTCHours(0, 0, 0, 0));
 
   const result = await db.collection("events").updateMany(
     {
